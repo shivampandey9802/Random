@@ -1,10 +1,12 @@
-// models/Post.js
 const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
   title: String,
   content: String,
-  author: { type: String, default: "Admin" },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   date: { type: Date, default: Date.now }
 });
 
